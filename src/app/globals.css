@@ -1,0 +1,350 @@
+:root {
+  --bg: #0f1724;
+  /* dark-blue base */
+  --surface: #0b1220;
+  --card: #0f1726;
+  --muted: #98a0b3;
+  --text: #e6eef8;
+  --primary: #5eead4;
+  /* mint */
+  --accent: #60a5fa;
+  /* blue */
+  --glass: rgba(255, 255, 255, 0.04);
+  --radius: 12px;
+  --container-max: 1000px;
+  --transition-fast: 160ms;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6f8fb;
+    --surface: #ffffff;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --text: #0b1220;
+    --primary: #0ea5a3;
+    --accent: #2563eb;
+    --glass: rgba(11, 17, 34, 0.03);
+  }
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans, Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue');
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+header .muted {
+  font-size: 20px;
+}
+
+header h1 {
+  font-size: 50px;
+}
+
+/* App shell */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  backdrop-filter: blur(6px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.brand .logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--text);
+  background: transparent;
+  box-shadow: none;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+}
+
+.nav a:hover {
+  color: var(--text);
+  background: var(--glass);
+  transform: translateY(-1px);
+}
+
+.app-footer {
+  padding: 18px 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  background: transparent;
+}
+
+/* Container override for consistent width */
+.container {
+  max-width: var(--container-max) !important;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Cards */
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(2, 6, 23, 0.6);
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(2, 6, 23, 0.75);
+}
+
+.card .card-header {
+  background: transparent;
+  border-bottom: none;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Buttons */
+.btn {
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  box-shadow: none;
+}
+
+.btn:focus {
+  outline: 3px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: #061221;
+  border: none;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.02);
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--primary);
+  background: transparent;
+}
+
+input,
+textarea,
+select,
+.form-control,
+.form-select {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 12px;
+  border-radius: 10px;
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(12, 18, 30, 0.4);
+  background: transparent !important;
+  color: var(--text) !important;
+}
+
+.form-control,
+.form-select,
+input,
+textarea,
+select {
+  color: var(--text) !important;
+  background: transparent !important;
+}
+
+/* Select dropdown styling */
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%235eead4' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 12px;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.form-select option {
+  background-color: var(--card);
+  color: var(--text);
+  padding: 12px;
+}
+
+.form-control::placeholder,
+.form-select::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: color-mix(in srgb, var(--muted) 70%, transparent);
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill,
+.form-control:-webkit-autofill,
+.form-select:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: var(--text) !important;
+  background: transparent !important;
+}
+
+/* Image placeholder */
+.image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  height: 160px;
+  width: 100%;
+}
+
+/* Scene image + content */
+.scene-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.scene-content {
+  padding-top: 12px;
+  color: var(--text);
+}
+
+.card .card-body {
+  color: var(--text);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animated-fade {
+  animation: fadeInUp 420ms ease both;
+}
+
+.float-slow {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .card,
+  .btn,
+  .nav a {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Utility */
+.muted {
+  color: var(--muted);
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.my-5 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* Small responsive tweaks */
+@media (max-width:640px) {
+  .app-header {
+    padding: 12px;
+  }
+
+  .brand {
+    font-size: 0.95rem;
+  }
+}
