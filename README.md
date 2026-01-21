@@ -2,6 +2,10 @@
 
 Um gerador inteligente de roteiros com áudios para vídeos curtos, alimentado por IA. Crie roteiros profissionais em múltiplos idiomas com imagens geradas automaticamente e síntese de voz.
 
+## 🌐 Visualização Online
+
+🚀 [Visualizar o site](https://script-ai-eta.vercel.app/)
+
 ## ✨ Características
 
 - 🤖 **Geração de Roteiros com IA** - Usa Google Gemini 2.5 Flash para gerar roteiros criativos
